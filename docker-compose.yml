@@ -1,6 +1,6 @@
 services:
   app:
-    image: nextjs-json-test:latest
+    image: nextjs-json-test:dev-fa84444
     ports:
       - "3000:3000"
     volumes:
