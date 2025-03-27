@@ -17,7 +17,7 @@ WORKDIR /usr/src/app
 COPY --from=deps /usr/src/app/node_modules ./node_modules
 COPY . .
 
-COPY .env.$ENV_MODE ./.env.production
+COPY .env.$ENV_MODE ./.env
 RUN yarn build
 
 #runner
