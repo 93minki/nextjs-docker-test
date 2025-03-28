@@ -4,7 +4,7 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+RUN yarn install --frozen-lockfile --production
 
 #build
 FROM node:18-alpine AS builder
@@ -26,7 +26,9 @@ RUN adduser --system --uid 1001 nextjs
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY --from=builder /app/package.json ./package.json
 
+ENV NODE_ENV=production
 EXPOSE 3000
 
 CMD ["node", "server.js"]

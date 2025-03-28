@@ -1,13 +1,17 @@
 node_modules
 .next
-.git
-.dockerignore
-Dockerfile*
-docker-compose*.yml
-outer-data
+.turbo
+dist
+.yarn/cache
+.yarn/unplugged
+.yarn/install-state.gz
+.pnpm-store
 
-.env
-.env.*
+.vscode/
+.DS_Store
+*.log
+*.tsbuildinfo
 
+.env*
 !.env.development
 !.env.production
