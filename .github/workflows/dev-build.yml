@@ -1,4 +1,4 @@
-name: Build Docker Image for Devlopment Environment
+name: Build Docker Image for Development Environment
 
 on:
   push:
@@ -23,12 +23,12 @@ jobs:
       - name: Build image and export as .tar
         run: |
           docker build -f Dockerfile.dev \
-            -t nextjs-dev:dev=${{ env.SHORT_SHA }} .
-          docker save nextjs-dev:dev-${{ env.SHORT_SHA}} \
-            -o nextjs-dev-${{ env.SHORT_SHA }}
+            -t nextjs-dev:dev-${{ env.SHORT_SHA }} .
+          docker save nextjs-dev:dev-${{ env.SHORT_SHA }} \
+            -o nextjs-dev-${{ env.SHORT_SHA }}.tar
 
       - name: Upload image tar to artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: dev-image-${{ env.SHORT_SHA }}
           path: nextjs-dev-${{ env.SHORT_SHA }}.tar
