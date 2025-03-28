@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  const gist_url = process.env.GITHUB_GIST_URL;
+  const gist_url = process.env.GIST_URL;
 
-  const token = process.env.GITHUB_GIST_TOKEN;
+  const token = process.env.GIST_TOKEN;
 
   if (!token) {
     return NextResponse.json(
