@@ -36,5 +36,5 @@ jobs:
       - name: Build and Push to Docker Hub
         run: |
           docker build -f Dockerfile.dev \
-            -t ${{ secrets.DOCKER_USERNAME }}/nextjs-dev:dev-${{ env.SHORT_SHA }}
+            -t ${{ secrets.DOCKER_USERNAME }}/nextjs-dev:dev-${{ env.SHORT_SHA }} .
           docker push ${{ secrets.DOCKER_USERNAME }}/nextjs-dev:dev-${{ env.SHORT_SHA }}
