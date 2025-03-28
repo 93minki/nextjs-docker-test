@@ -17,6 +17,10 @@ jobs:
         id: vars
         run: echo "SHORT_SHA=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
 
+      - name: Write .env.development
+        run: |
+          echo "${{ secrets.ENV }}" | tr '\r' '\n' > .env.development
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
