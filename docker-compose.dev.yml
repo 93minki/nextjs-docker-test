@@ -1,8 +1,6 @@
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
+    image: 93minki/nextjs-dev:latest
     ports:
       - "3000:3000"
     volumes:
