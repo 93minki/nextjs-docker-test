@@ -7,7 +7,6 @@ services:
       - "3000:3000"
     volumes:
       - .:/app
-      - /app/node_modules
       - ./outer-data/outer-version.json:/app/outer-version.json
     environment:
       - NODE_ENV=development
